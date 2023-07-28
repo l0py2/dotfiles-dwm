@@ -1,0 +1,2 @@
+setxkbmap pt
+exec dwm
