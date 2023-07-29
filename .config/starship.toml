@@ -1,0 +1,28 @@
+add_newline = false
+
+format = """
+$username[](fg:cyan bg:blue)\
+$hostname[](fg:blue bg:green)\
+$directory[](fg:green)\
+$character"""
+
+[username]
+show_always = true
+style_root = 'bold fg:black bg:cyan'
+style_user = 'bold fg:black bg:cyan'
+format = "[$user]($style)"
+
+[hostname]
+ssh_only = false
+trim_at = ''
+style = 'bold fg:black bg:blue'
+format = "[$hostname]($style)"
+
+[directory]
+truncation_length = 0
+truncate_to_repo = true
+style = 'bold fg:black bg:green'
+format = "[$path]($style)"
+
+[character]
+format = ' '
