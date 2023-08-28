@@ -7,7 +7,7 @@ local function ensure_packer()
 		fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 
 		vim.cmd [[packadd packer.nvim]]
-
+		
 		return true
 	end
 
@@ -20,7 +20,9 @@ local packer = require('packer')
 
 packer.startup(function(use)
 	use 'wbthomason/packer.nvim'
+
 	use 'shaunsingh/nord.nvim'
+
 	use {
 		'nvim-treesitter/nvim-treesitter',
 		run = function()
@@ -28,36 +30,42 @@ packer.startup(function(use)
 			ts_update()
 		end
 	}
-	use {
-		'nvim-telescope/telescope.nvim',
-		tag = '0.1.1',
-		requires = {
-			{ 'nvim-lua/plenary.nvim' }
-		}
-	}
+
 	use {
 		'nvim-lualine/lualine.nvim',
-		requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-	}
-	use {
-		'williamboman/mason.nvim',
-		build = ':MasonUpdate',
-		'williamboman/mason-lspconfig.nvim',
-		'neovim/nvim-lspconfig'
-	}
-	use {
-		'hrsh7th/nvim-cmp',
 		requires = {
-			{ 'hrsh7th/cmp-nvim-lsp' },
-			{ 'neovim/nvim-lspconfig' },
-			{
-				'L3MON4D3/LuaSnip',
-				tag = 'v<CurrentMajor>.*'
-			},
-			{ 'saadparwaiz1/cmp_luasnip' }
+			'nvim-tree/nvim-web-devicons',
+			opt = true
 		}
 	}
 
+	use {
+		'nvim-telescope/telescope.nvim',
+		tag = '0.1.2',
+		requires = {
+			'nvim-lua/plenary.nvim'
+		}
+	}
+
+	use {
+		'williamboman/mason.nvim',
+		'williamboman/mason-lspconfig.nvim',
+		'neovim/nvim-lspconfig'
+	}
+
+	use {
+		'L3MON4D3/LuaSnip',
+		tag = 'v2.*'
+	}
+
+	use {
+		'hrsh7th/nvim-cmp',
+		requires = {
+			'hrsh7th/cmp-nvim-lsp',
+			'saadparwaiz1/cmp_luasnip'
+		}
+	}
+	
 	if packer_bootstrap then
 		packer.sync()
 	end

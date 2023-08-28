@@ -1,7 +1,12 @@
+local g = vim.g
+local keymap = vim.keymap
+
+g.mapleader = 'ç'
+g.maplocalleader = 'ç'
+
+keymap.set('n', '<leader>n', vim.cmd.Explore)
+
 local telescope = require('telescope.builtin')
 
-vim.g.mapleader = 'ç'
-vim.g.maplocalleader = 'ç'
-
-vim.keymap.set('n', '<leader>ff', telescope.find_files, {})
-vim.keymap.set('n', '<leader>n', vim.cmd.Ex)
+keymap.set('n', '<leader>ff', telescope.find_files, {})
+keymap.set('n', '<leader>fd', telescope.lsp_definitions, {})
