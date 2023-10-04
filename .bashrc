@@ -13,6 +13,8 @@ export XDG_DATA_HOME=$HOME/.local/share
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_CONFIG_HOME=$HOME/.config
 
+[ -d $HOME/.local/bin ] && PATH="$HOME/.local/bin:$PATH"
+
 alias dotf='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 alias rm='rm -I'
