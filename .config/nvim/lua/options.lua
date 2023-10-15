@@ -14,4 +14,4 @@ vim.o.colorcolumn = "80"
 
 vim.o.signcolumn = 'yes'
 
-vim.cmd.colorscheme('nord')
+vim.cmd.colorscheme('catppuccin-mocha')

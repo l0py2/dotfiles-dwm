@@ -21,7 +21,10 @@ local packer = require('packer')
 packer.startup(function(use)
 	use 'wbthomason/packer.nvim'
 
-	use 'shaunsingh/nord.nvim'
+	use {
+		'catppuccin/nvim',
+		as = 'catppuccin'
+	}
 
 	use {
 		'nvim-treesitter/nvim-treesitter',
