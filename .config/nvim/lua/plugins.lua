@@ -44,21 +44,26 @@ packer.startup(function(use)
 
 	use {
 		'nvim-telescope/telescope.nvim',
-		tag = '0.1.2',
+		tag = '0.1.*',
 		requires = {
 			'nvim-lua/plenary.nvim'
 		}
 	}
 
+	use 'neovim/nvim-lspconfig'
+
 	use {
 		'williamboman/mason.nvim',
-		'williamboman/mason-lspconfig.nvim',
-		'neovim/nvim-lspconfig'
+		requires = {
+			'williamboman/mason-lspconfig.nvim'
+		}
 	}
 
 	use {
 		'L3MON4D3/LuaSnip',
-		tag = 'v2.*'
+		requires = {
+			'rafamadriz/friendly-snippets'
+		}
 	}
 
 	use {
@@ -68,6 +73,8 @@ packer.startup(function(use)
 			'saadparwaiz1/cmp_luasnip'
 		}
 	}
+
+	use 'vimwiki/vimwiki'
 	
 	if packer_bootstrap then
 		packer.sync()
