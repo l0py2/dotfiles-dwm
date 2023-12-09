@@ -1,1 +1,1 @@
-[[ -f ~/.bashrc ]] && . ~/.bashrc
+.config/bash/bash_profile
