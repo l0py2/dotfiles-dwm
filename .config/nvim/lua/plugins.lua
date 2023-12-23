@@ -44,7 +44,6 @@ packer.startup(function(use)
 
 	use {
 		'nvim-telescope/telescope.nvim',
-		tag = '0.1.*',
 		requires = {
 			'nvim-lua/plenary.nvim'
 		}
@@ -73,6 +72,8 @@ packer.startup(function(use)
 			'saadparwaiz1/cmp_luasnip'
 		}
 	}
+
+	use 'nmac427/guess-indent.nvim'
 
 	use 'vimwiki/vimwiki'
 	
