@@ -13,5 +13,3 @@ vim.o.autoindent = true
 vim.o.colorcolumn = "80"
 
 vim.o.signcolumn = 'yes'
-
-vim.cmd.colorscheme('catppuccin-mocha')

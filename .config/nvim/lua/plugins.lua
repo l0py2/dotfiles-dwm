@@ -57,5 +57,7 @@ require('lazy').setup({
 		}
 	},
 	'NMAC427/guess-indent.nvim',
-	'jakewvincent/mkdnflow.nvim'
+	{
+		import = 'plugins/wiki'
+	}
 })

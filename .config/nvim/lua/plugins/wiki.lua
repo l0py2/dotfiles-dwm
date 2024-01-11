@@ -1,14 +1,10 @@
-require('mkdnflow').setup {
-	create_dirs = true,
-	perspective = {
-		priority = 'current',
-		nvim_wd_heel = true
-	},
-	links = {
-		transform_explicit = function(text)
-			text = text:gsub(' ', '-')
-			text = text:lower()
-			return text
-		end
-	}
+return {
+	'vimwiki/vimwiki',
+	init = function()
+		vim.g.vimwiki_list = {{
+			path = '~/.local/share/wiki',
+			syntax = 'markdown',
+			ext = 'md'
+		}}
+	end
 }
