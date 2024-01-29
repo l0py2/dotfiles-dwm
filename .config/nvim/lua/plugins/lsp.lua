@@ -3,6 +3,19 @@ local luasnip = require('luasnip')
 
 require('luasnip.loaders.from_vscode').lazy_load()
 
+vim.keymap.set('n', '<leader>D', vim.diagnostic.open_float)
+
+vim.api.nvim_create_autocmd('LspAttach', {
+	callback = function(args)
+		local opts = {
+			buffer = args.buf
+		}
+
+		vim.keymap.set('n', '<leader>d', vim.lsp.buf.hover, opts)
+		vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, opts)
+	end
+})
+
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -12,6 +25,7 @@ cmp.setup({
 	sources = cmp.config.sources({
 		{ name = 'nvim_lsp' },
 		{ name = 'luasnip' },
+		{ name = 'path' },
 		{ name = 'buffer' }
 	}),
 	mapping = cmp.mapping.preset.insert({
