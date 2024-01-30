@@ -1,4 +1,4 @@
-. .config/shell/profile
+. "$HOME/.config/shell/profile"
 
 [[ -f '/usr/share/nvm/init-nvm.sh' ]] && . '/usr/share/nvm/init-nvm.sh'
 
