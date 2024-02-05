@@ -3,7 +3,7 @@ local luasnip = require('luasnip')
 
 require('luasnip.loaders.from_vscode').lazy_load()
 
-vim.keymap.set('n', '<leader>D', vim.diagnostic.open_float)
+vim.keymap.set('n', '<leader>ld', vim.diagnostic.open_float)
 
 vim.api.nvim_create_autocmd('LspAttach', {
 	callback = function(args)
@@ -40,12 +40,21 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 require('mason').setup()
 local mason_lspconfig = require('mason-lspconfig')
 
-mason_lspconfig.setup()
+mason_lspconfig.setup({
+	ensure_installed = {
+		'jdtls'
+	}
+})
 
-mason_lspconfig.setup_handlers {
+mason_lspconfig.setup_handlers({
 	function(server_name)
+		-- jdtls is managed by nvim-jdtls plugin
+		if server_name == 'jdtls' then
+			return
+		end
+
 		require('lspconfig')[server_name].setup {
 			capabilities = capabilities
 		}
 	end
-}
+})

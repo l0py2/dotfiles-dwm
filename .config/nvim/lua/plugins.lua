@@ -42,6 +42,7 @@ require('lazy').setup({
 			'williamboman/mason-lspconfig.nvim'
 		}
 	},
+	'mfussenegger/nvim-jdtls',
 	{
 		'L3MON4D3/LuaSnip',
 		dependencies = {
@@ -58,7 +59,5 @@ require('lazy').setup({
 		}
 	},
 	'NMAC427/guess-indent.nvim',
-	{
-		import = 'plugins/wiki'
-	}
+	{ import = 'plugins/wiki' }
 })
