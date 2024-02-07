@@ -49,13 +49,11 @@ mason_lspconfig.setup({
 
 mason_lspconfig.setup_handlers({
 	function(server_name)
-		-- jdtls is managed by nvim-jdtls plugin
-		if server_name == 'jdtls' then
-			return
-		end
-
 		require('lspconfig')[server_name].setup {
 			capabilities = capabilities
 		}
+	end,
+	-- jdtls is managed by nvim-jdtls plugin
+	['jdtls'] = function()
 	end
 })
