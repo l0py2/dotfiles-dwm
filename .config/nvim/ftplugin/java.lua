@@ -1,6 +1,8 @@
-local jdtls = require('jdtls')
+if vim.fn.executable('jdtls') ~= 1 then
+	return
+end
 
-jdtls.start_or_attach({
+require('jdtls').start_or_attach({
 	cmd = { 'jdtls' },
 	root_dir = vim.fs.dirname(vim.fs.find({ 'gradlew', '.git', 'mvnw' }, { upward = true })[1])
 })

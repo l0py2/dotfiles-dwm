@@ -41,17 +41,13 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 require('mason').setup()
 local mason_lspconfig = require('mason-lspconfig')
 
-mason_lspconfig.setup({
-	ensure_installed = {
-		'jdtls'
-	}
-})
+mason_lspconfig.setup()
 
 mason_lspconfig.setup_handlers({
 	function(server_name)
-		require('lspconfig')[server_name].setup {
+		require('lspconfig')[server_name].setup({
 			capabilities = capabilities
-		}
+		})
 	end,
 	-- jdtls is managed by nvim-jdtls plugin
 	['jdtls'] = function()
