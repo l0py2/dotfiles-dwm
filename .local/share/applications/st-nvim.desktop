@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=st Neovim
+Icon=nvim
+Exec=st -e nvim %F
+Terminal=false
+StartupNotify=false
